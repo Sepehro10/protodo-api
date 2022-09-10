@@ -56,9 +56,9 @@ router.post("/login", async (req, res, next) => {
 		if (!user) {
 			res.json({
 				success: false,
-				message: "User not found",
+				msg: "User not found",
 			});
-			return;
+			return res;
 		}
 
 		// Check password
@@ -67,9 +67,9 @@ router.post("/login", async (req, res, next) => {
 			// npx prisma studio
 			res.json({
 				success: false,
-				message: "Invalid password",
+				msg: "Invalid password",
 			});
-			return;
+			return res;
 		}
 
 		// Generate token
